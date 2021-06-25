@@ -1,8 +1,9 @@
 // Assignment Code Original
 var generateBtn = document.querySelector("#generate");
 
-
-
+var specialArray = ["!", "$", "#"]
+var lowerCaseArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+var upperCaseArray = ["A", "B", "C", "D"]
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword()
@@ -11,36 +12,40 @@ function writePassword() {
 }
 
 function generatePassword() {
-  var question1 = prompt("Would you like to create a password, yes or no?");
-  if(question1 === "no") {
-    confirm("That's ok");
-  } else if(question1 ==="yes") {
-    var question2 = prompt("What is the length of your preferred password?");
+  var question1 = confirm("Would you like to create a password? Enter yes or no.");
+  if(question1 === true) {
+    var question2 = prompt("What is the length of your preferred password?  Enter numerically");
     }
-    if(question2 < 8 || question2 >128) {
+    if(question2 < 8 || question2 > 128) {
       alert("Password is either too short or too long")
     } else if(question2 > 8 || question2 < 128) {
-      var question3 = prompt("Do you want special characters?")
+      var question3 = confirm("Do you want special characters?")
       }
-        if(question3 === "no") {
-          var onlyLength = Math.floor(Math.random() * Math.pow(10,question2))
-          return onlyLength
-        } else if(question3 === "yes") {
-          var question4 = prompt("Do you want lower case letters?")
-        }
-          if(question4 === "no") {
-            var lengthAndChar = toString(onlyLength)
-            function replace(lengthAndChar) {
-            return lengthAndChar.replace(/[0 - question2]/,'$')
-          } 
-          } else if(question4 === "yes") {
-          // var question5 = prompt("Do you want upper case letters?")
+        if(question3 === true || question3 === false) {
+          var question4 = confirm("Do you want lower case letters?")
+        } if(question4 === true || question4 === false) {
+          var question5 = confirm("Do you want upper case letters?")
+        } if(question5 === true || question5 === false) {
+        } if(question3 === true || question4 === false || question5 === false) {
+            for (let i = 0; i < question2.length; i++) {
+              return specialArray[i]
           }
-
+        }
+}
+    
+    
+        
+          // var specialArray = ["!", "$", "#"]
+          // //const upperCase = ["A", "B", "C", "D", "E", "F", "G"]
+          // // const lowerCase = ["a", "b", "c", "d", "e", "f", "f"]
+          // var onlyLength = Math.floor(Math.random() * Math.pow(10,question2)
+          //   for (var i = 0; i < question2; i++) {
+          //     console.log(specialArray[i])
+          //   }  
 
     //   var question3 = prompt("Do you want special characters?")
     //   }
-}
+
       
       // } else if (question2 > 8 || question2 < 128)
       //   var question3 = prompt("Do you want special characters?")
